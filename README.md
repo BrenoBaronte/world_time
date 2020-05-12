@@ -1,16 +1,21 @@
-# worldtime
+# World Time
 
-A new Flutter application.
+A simple Flutter application to view time from many places.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+This application have an integration with  [World Time Api](http://worldtimeapi.org/) to get the times.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Home with night light
+![Home Night Light][https://i.imgur.com/cH9Pf5o.png]
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Choose a Location
+![Choose a Location][https://i.imgur.com/2Gyofgw.png]
+
+Loading
+![Loading][https://i.imgur.com/7ROEKbm.png]
+
+Home with day light
+![Home with day light][https://i.imgur.com/DdVaIyq.png]
