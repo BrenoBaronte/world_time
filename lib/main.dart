@@ -4,6 +4,8 @@ import 'package:worldtime/pages/loading.dart';
 import 'package:worldtime/pages/choose_location.dart';
 
 void main() => runApp(MaterialApp(
+  title: 'World Time',
+  debugShowCheckedModeBanner: false,
   initialRoute: '/',
   routes: {
     '/': (context) => Loading(),
