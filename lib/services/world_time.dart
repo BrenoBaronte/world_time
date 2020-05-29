@@ -38,4 +38,37 @@ class WorldTime {
       time = 'could not get time data';
     }
   }
+
+  Future<void> getCurrentTime() async {
+
+    try {
+      // make the request
+      Response response = await get('https://worldtimeapi.org/api/ip');
+      Map data = jsonDecode(response.body);
+
+      print(data);
+
+      // get properties from data
+      String datetime = data['datetime'];
+      String offset = data['utc_offset'].substring(0, 3);
+
+      String timezone = data['timezone'];
+      var index = timezone.indexOf('/') + 1;
+      location = timezone.substring(index);
+
+      // create datetime object
+      DateTime now = DateTime.parse(datetime);
+      now = now.add(Duration(hours: int.parse(offset)));
+
+      // set the time property
+
+      isDayTime = now.hour > 6 && now.hour < 19 ? true : false;
+
+      time = DateFormat.jm().format(now);
+    }
+    catch (e) {
+      print('caught error: $e');
+      time = 'could not get time data';
+    }
+  }
 }
