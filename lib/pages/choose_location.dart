@@ -31,7 +31,6 @@ class _ChooseLocationState extends State<ChooseLocation>{
       'isDaytime': instance.isDayTime,
     });
 
-
   }
 
   @override
