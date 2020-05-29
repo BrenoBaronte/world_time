@@ -6,35 +6,31 @@ class ChooseLocation extends StatefulWidget {
   _ChooseLocationState createState() => _ChooseLocationState();
 }
 
-class _ChooseLocationState extends State<ChooseLocation>{
-
-  List<WorldTime> locations = [
-    WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.png'),
-    WorldTime(url: 'Europe/Berlin', location: 'Athens', flag: 'greece.png'),
-    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.png'),
-    WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
-    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
-    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
-    WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
-    WorldTime(url: 'Asia/Jakarta', location: 'Jakarta', flag: 'indonesia.png'),
-  ];
+class _ChooseLocationState extends State<ChooseLocation> {
+  Map data = {};
+  List<String> locations = List();
 
   void updateTime(index) async {
-    WorldTime instance = locations[index];
+    print(locations[index]);
+    WorldTime instance =
+        WorldTime(location: locations[index], url: locations[index]);
     await instance.getTime();
 
-    //navigate to home screen
-    Navigator.pop(context, {
+    // navigate to home screen
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'flag': instance.flag,
       'time': instance.time,
       'isDaytime': instance.isDayTime,
     });
-
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
+    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
+
+    locations = data['locations'];
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -53,10 +49,10 @@ class _ChooseLocationState extends State<ChooseLocation>{
                 onTap: () {
                   updateTime(index);
                 },
-                title: Text(locations[index].location),
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage('assets/${locations[index].flag}'),
-                ),
+                title: Text(locations[index]),
+//                leading: CircleAvatar(
+//                  backgroundColor: Colors.blue,
+//                ),
               ),
             ),
           );

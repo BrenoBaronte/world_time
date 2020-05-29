@@ -35,8 +35,6 @@ class _HomeState extends State<Home> {
                 OutlineButton.icon(
                   onPressed: () async {
                     dynamic result =
-                    //TODO  TEMP LINE
-//                    await Navigator.pushNamed(context, '/location');
                     await Navigator.pushNamed(context, '/region');
                     setState(() {
                       data = {

@@ -41,15 +41,15 @@ class _ChooseRegionState extends State<ChooseRegion> {
                   var locationsRegions =
                       await getLocationsRegions(regions[index]);
                   print(locationsRegions);
-                  Navigator.pushReplacementNamed(context, '/location2',
+                  Navigator.pushReplacementNamed(context, '/location',
                       arguments: {
                         'locations': locationsRegions,
                       });
                 },
                 title: Text(regions[index]),
-                leading: CircleAvatar(
-                  backgroundColor: Colors.blueGrey,
-                ),
+//                leading: CircleAvatar(
+//                  backgroundColor: Colors.blueGrey,
+//                ),
               ),
             ),
           );

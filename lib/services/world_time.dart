@@ -21,7 +21,11 @@ class WorldTime {
 
       // get properties from data
       String datetime = data['datetime'];
-      String offset = data['utc_offset'].substring(1, 3);
+      String offset = data['utc_offset'].substring(0, 3);
+
+      String timezone = data['timezone'];
+      var index = timezone.indexOf('/') + 1;
+      location = timezone.substring(index);
 
       // create datetime object
       DateTime now = DateTime.parse(datetime);
