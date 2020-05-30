@@ -62,15 +62,15 @@ class _HomeState extends State<Home> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 80.0),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
                         data['location'],
                         style: TextStyle(
-                          fontSize: 28.0,
-                          letterSpacing: 2.0,
+                          fontSize: 26.0,
+                          letterSpacing: 1.0,
                           color: Colors.white,
                         ),
                       ),

@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:worldtime/services/world_time.dart';
 
 class ChooseRegion extends StatefulWidget {
   @override
@@ -39,7 +37,7 @@ class _ChooseRegionState extends State<ChooseRegion> {
               child: ListTile(
                 onTap: () async {
                   var locationsRegions =
-                      await getLocationsRegions(regions[index]);
+                      await WorldTime().getLocationsRegions(regions[index]);
                   print(locationsRegions);
                   Navigator.pushReplacementNamed(context, '/location',
                       arguments: {
@@ -56,25 +54,5 @@ class _ChooseRegionState extends State<ChooseRegion> {
         },
       ),
     );
-  }
-
-  Future<List<String>> getLocationsRegions(String region) async {
-    try {
-      // make the request
-      Response response =
-          await get('https://worldtimeapi.org/api/timezone/$region');
-      List<dynamic> data = jsonDecode(response.body);
-
-      List<String> result = [];
-
-      for (var i = 0; i < data.length; i++) {
-        result.add(data[i]);
-      }
-
-      return result;
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
   }
 }
