@@ -1,6 +1,6 @@
 # World Time
 
-A simple Flutter application to view time from many places.
+A Flutter application to view time from many places.
 
 ## Google Play Store
 
