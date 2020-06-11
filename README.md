@@ -2,6 +2,10 @@
 
 A simple Flutter application to view time from many places.
 
+## Google Play Store
+
+This app is available on Google Play Store! [Click here to access!](https://play.google.com/store/apps/details?id=com.baronte.worldtime)
+
 ## Overview
 
 This application have an integration with  [World Time Api](http://worldtimeapi.org/) to get the times.
